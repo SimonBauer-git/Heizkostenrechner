@@ -1,2 +1,2 @@
 # Heizkostenrechner
-Ein rechner um heizkosten auszurechnen
+Ein Rechner um Heizkosten auszurechnen
