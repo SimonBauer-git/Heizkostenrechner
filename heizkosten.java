@@ -6,7 +6,7 @@ public class heizkosten {
     double kWh;
     double area;
 
-    double öl = 1.20;
+    double öl = 1.20;                               //preise der heizarten
     double gas = 2.40;
     double holz = 0.99;
 
@@ -24,4 +24,13 @@ public class heizkosten {
     Scanner heating_type_scanner =new Scanner(System.in);
     heating_type=heating_type_scanner.nextLine();
     System.out.println(heating_type);
-}}
+
+    if (heating_type.contains("ÖL")||heating_type.contains("öl")||heating_type.contains("Öl"))
+    {System.out.println("Rechnung für ölheizung");}
+
+    if(heating_type.contains("Gas")||heating_type.contains("gas")||heating_type.contains("GAS"))
+    {System.out.println("Rechnung für Gasheizung");}
+
+    if(heating_type.contains("Holz")||heating_type.contains("holz")||heating_type.contains("HOLZ"))
+    {System.out.println("Rechnung für heizen mit Holz");}
+    }}
