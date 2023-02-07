@@ -3,7 +3,7 @@ public class heizkosten {
     public static void main (String[]ARGS)
     {int months;
     String heating_type;
-    double kWh;
+    double kWh = 130.0;
     double area;
 
     double öl = 1.20;                               //preise der heizarten
@@ -26,11 +26,20 @@ public class heizkosten {
     System.out.println(heating_type);
 
     if (heating_type.contains("ÖL")||heating_type.contains("öl")||heating_type.contains("Öl"))
-    {System.out.println("Rechnung für ölheizung");}
-
+    {System.out.println("Rechnung für ölheizung");
+    output(12.0,20.0,months);}
     if(heating_type.contains("Gas")||heating_type.contains("gas")||heating_type.contains("GAS"))
     {System.out.println("Rechnung für Gasheizung");}
 
     if(heating_type.contains("Holz")||heating_type.contains("holz")||heating_type.contains("HOLZ"))
     {System.out.println("Rechnung für heizen mit Holz");}
-    }}
+    }
+    public static void output(double kosten, double CO2, int monate)
+    {if(monate==1)
+    {System.out.println("Es kostet: " + kosten + " zu heizen und es wird dabei " + CO2 + " Kg CO2 Freigesetzt innerhalb eines Monats");}
+    else
+    {System.out.println("Es kostet: " + kosten + " zu heizen und es wird dabei " + CO2 + " Kg CO2 Freigesetzt innerhalb " + monate + "Monaten");}
+
+}
+
+}
