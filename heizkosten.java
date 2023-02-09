@@ -5,6 +5,7 @@ public class Main {
         String heating_type;
         double kWh = 130.0;
         double area;
+        double hours;
 
         double öl_preis = 1.20;                               //preise der heizarten
         double gas_preis = 2.40;
@@ -20,6 +21,10 @@ public class Main {
         System.out.println("Bitte geben sie die Anzahl der Monate an");
         months = month_scanner.nextInt();
 
+        Scanner hours_scanner = new Scanner(System.in);
+        System.out.println("Bitte geben sie die Anzahl der Stunden an denen sie durchschnittlich heizen an");
+        hours = hours_scanner.nextDouble();
+
         System.out.println("Bitte geben sie die Fläche des Gebäudes in qm an");
         Scanner area_scanner = new Scanner(System.in);
         area = area_scanner.nextDouble();
@@ -31,27 +36,27 @@ public class Main {
 
         if (heating_type.contains("ÖL")||heating_type.contains("öl")||heating_type.contains("Öl"))
         {System.out.println("ölheizung");
-            kosten=öl_preis*area*kWh*(months*30.5*24);
-            abgas=öl_abgas*kWh*(months*30.5*24);
+            kosten=öl_preis*area*kWh*(months*30.5*hours);
+            abgas=öl_abgas*kWh*(months*30.5*hours);
             output(kosten,abgas,months);}
 
         if(heating_type.contains("Gas")||heating_type.contains("gas")||heating_type.contains("GAS"))
         {System.out.println("Rechnung für Gasheizung");
-            kosten=gas_preis*area*kWh*(months*30.5*24);
-            abgas=gas_abgas*kWh*(months*30.5*24);
+            kosten=gas_preis*area*kWh*(months*30.5*hours);
+            abgas=gas_abgas*kWh*(months*30.5*hours);
             output(kosten,abgas,months);}
 
         if(heating_type.contains("Holz")||heating_type.contains("holz")||heating_type.contains("HOLZ"))
         {System.out.println("Rechnung für heizen mit Holz");
-            kosten=pellets_preis*area*kWh*(months*30.5*24);
-            abgas=pellets_abgas*kWh*(months*30.5*24);
+            kosten=pellets_preis*area*kWh*(months*30.5*hours);
+            abgas=pellets_abgas*kWh*(months*30.5*hours);
             output(kosten,abgas,months);}
     }
     public static void output(double kosten, double CO2, int monate)
     {if(monate==1)
     {System.out.println("Es kostet: " + kosten + " € zu heizen und es wird dabei " + CO2 + " Kg CO2 Freigesetzt innerhalb eines Monats");}
     else
-    {System.out.println("Es kostet: " + kosten + " € zu heizen und es wird dabei " + CO2 + " Kg CO2 Freigesetzt innerhalb " + monate + " Monaten");}
+    {System.out.println("Es kostet: " + kosten + " € zu heizen und es wird dabei " + CO2 + " Kg CO2 Freigesetzt innerhalb von " + monate + " Monaten");}
 
     }
 
